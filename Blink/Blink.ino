@@ -1,18 +1,21 @@
-//the pin on which you connect the anode (+) of the LED
-int incomingData = 0;
-float voltage, degreesC;
+// App: 
+// - Read temperature
+// - Set LED
 
+// Pins
 const int temperaturePin = A0;
 const int ledPin =  12;
 
+// Variables
+int incomingData = 0;
+float voltage, degreesC;
 
- 
-//this function runs only once (after reset)
 void setup(){
-  Serial.begin(9600); 
+  Serial.begin(9600);
+  pinMode(temperaturePin, INPUT);
   pinMode(ledPin, OUTPUT); 
 }
- 
+
 void loop(){
   
   printTemperature(temperaturePin);
